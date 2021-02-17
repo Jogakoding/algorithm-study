@@ -5,9 +5,7 @@ for tc in range(1, T+1):
     total = 0
 
     for n in range(N):
-        print(D, L, n)
         damage = D * (1+n*L*0.01)
-        print(damage)
         total += damage
     
-    print(damage)
+    print("#%d %d" % (tc, total))
