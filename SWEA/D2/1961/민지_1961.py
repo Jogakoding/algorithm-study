@@ -22,4 +22,4 @@ for t in range(1, T+1):
     for i in range(N):
         print("".join(square_90[i]), end=" ")
         print("".join(square_180[i]), end=" ")
-        print("".join(square_270[i]))
+        print("".join(square_270[i])) 
