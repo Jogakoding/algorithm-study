@@ -1,9 +1,7 @@
-package com.ssafy.swea;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Solution_9778 {
+public class Solution {
 	private static int[] cards;
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,7 +13,7 @@ public class Solution_9778 {
 			int sum = 0;
 			String answer = "STOP";
 			cards  = new int[12];
-			
+			cards[10] = -12;
 			for (int i = 0; i < N; i++) {
 				int num = Integer.parseInt(br.readLine());
 				cards[num]++;
@@ -40,6 +38,7 @@ public class Solution_9778 {
 			
 			sb.append("#").append(testCase).append(" ").append(answer).append("\n");
 		}
+        sb.setLength(sb.length()-1);
 		System.out.println(sb);
 	}
 
