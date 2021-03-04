@@ -16,7 +16,7 @@ public class SWEA_10200 {
     // readLine = 한줄씩 읽어오기
     int n=Integer.parseInt(br.readLine());
 		
-		for (int tc=1;tc<n;tc++) {
+		for (int tc=1;tc<=n;tc++) {
       // 이거 뭔가 .split같은 느낌인데 잘 모르겠움!!
 			StringTokenizer st=new StringTokenizer(br.readLine());
 			// .nextToken = st에서 다음 토큰 (다음 아이템) 가져오기
