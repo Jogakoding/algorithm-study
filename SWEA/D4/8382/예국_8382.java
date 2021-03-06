@@ -23,9 +23,7 @@ public class Solution_8382 {
 			int diffX = Math.abs(sx - ex);
 			int diffY = Math.abs(sy - ey);
 			
-			if(diffX == 0 && diffY == 0) {
-				answer = 4;
-			}else if(Math.abs(diffX - diffY) <= 1) {
+			if(Math.abs(diffX - diffY) <= 1) {
 				answer = diffX + diffY;
 			}else {
 				int diff = Math.abs(diffY - diffX);
