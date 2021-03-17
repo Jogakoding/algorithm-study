@@ -13,6 +13,9 @@ for tc in range(1, T+1):
     visited = [0 for _ in range(N+1)]
     queue = [0]
 
+    # queue에 있는걸 뽑으면서,
+    # 1. fx, fy랑 거리가 1000이하면 그 즉시 종료
+    # 2. 아니면 방문하지 않은 것들중에서 거리가 1000 이하인 맥주샵들 전부 추가
     while queue:
         c = queue.pop()
         visited[c] = 1
