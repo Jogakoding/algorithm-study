@@ -25,83 +25,31 @@ public class BOJ_1520_내리막길 {
 			String[] temp = br.readLine().split(" ");
 			for (int j = 0; j < m; j++) {
 				arr[i][j] = Integer.parseInt(temp[j]);
-				map[i][j]=-1;
+				map[i][j] = -1;
 			}
 		}
-		dfs();
-		System.out.println(map[n - 1][m - 1]);
+		System.out.println(dfs(n - 1, m - 1));
 	}
 
-	static class pos {
-		int y;
-		int x;
-
-		public pos(int y, int x) {
-			super();
-			this.y = y;
-			this.x = x;
+	private static int dfs(int y, int x) {
+		if (y == 0 && x == 0) {
+			return 1;
 		}
-	}
 
-	private static void dfs() {
-		Stack<pos> stack = new Stack<pos>();
-		stack.push(new pos(n-1, m-1));
-
-		while (!stack.isEmpty()) {
-			pos p = stack.pop();
-			int y = p.y;
-			int x = p.x;
-
+		// 방문하지 않음
+		if (map[y][x] == -1) {
+			map[y][x] = 0;
 			for (int dir = 0; dir < 4; dir++) {
 				int ny = y + dy[dir];
 				int nx = x + dx[dir];
-
-				if (ny < 0 || nx < 0 || ny >= n || nx >= m) {
-					continue;
+				if (nx >= 0 && ny >= 0 && ny < n && nx < m) {
+					if (arr[ny][nx] > arr[y][x]) {
+						map[y][x] += dfs(ny, nx);
+					}
 				}
-				if (ny == 0 && nx == 0) {
-					map[ny][nx] += 1;
-					continue;
-				}
-
-				if (arr[y][x] < arr[ny][nx]) {
-					stack.push(new pos(ny, nx));
-				}
-
-				map[ny][nx] += 1;
 			}
 		}
+		return map[y][x];
+
 	}
 }
-//	private static void bfs() {
-//		Queue<pos> q = new LinkedList<pos>();
-//		q.offer(new pos(0, 0));
-//
-//		while (!q.isEmpty()) {
-//			pos p = q.poll();
-//			int y = p.y;
-//			int x = p.x;
-//
-//			for (int dir = 0; dir < 4; dir++) {
-//				int ny = y + dy[dir];
-//				int nx = x + dx[dir];
-//
-//				if (ny < 0 || nx < 0 || ny >= n || nx >= m) {
-//					continue;
-//				}
-//				if (ny == n - 1 && nx == m - 1) {
-//					map[ny][nx] += 1;
-//					continue;
-//				}
-//
-//				if (arr[y][x] > arr[ny][nx]) {
-//					q.offer(new pos(ny, nx));
-//				}
-//
-//				map[ny][nx] += 1;
-//
-//			}
-//		}
-//	}
-
-//}
