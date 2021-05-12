@@ -18,8 +18,8 @@ def compress(s, n, l):
             cnt += n
             rep = 1
         else:
-            # 이번에 처음 반복되는 문자거나 반복횟수의 자리수가 바뀌면 한자리 추가
-            if rep in [1, 10, 100, 1000]:
+            # 이번에 처음 반복되는 문자라면 앞에 숫자가 추가되기 때문에 한글자 추가
+            if rep in [1, 9, 99, 999]:
                 cnt += 1
             rep += 1
         prev = now
@@ -29,10 +29,8 @@ def compress(s, n, l):
 
 def solution(s):
     l = minimum = len(s)
-    # 어차피 문자열의 길이가 l//2보다 크면 반복 자체가 될 수 없기 때문에 l//2까지만 체크
     for n in range(1, l//2+1):
         cnt = compress(s, n, l)
-        # 남는 문자열이 있을 경우 처리
         if l % n:
             cnt += (l % n)
         if cnt < minimum:
