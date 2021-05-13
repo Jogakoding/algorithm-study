@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-public class BOJ_1520_내리막길 {
+public class BOJ_1520_내리막길 { 
 	static int arr[][], map[][];
 	static int n, m, answer;
 
